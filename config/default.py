@@ -1,3 +1,4 @@
+SECRET_KEY = "a59bef07b0bc33c9ffe95d1ac0f906fa1f0c69657b9dce5b"
 PROPAGATE_EXCEPTIONS = True
 # configuracion de DB
 USER_DB = 'postgres'
