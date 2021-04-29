@@ -29,7 +29,6 @@ def create_app(settings_module):
     # Registra manejadores de errores personalizados
     register_error_handlers(app)
 
-    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
     return app
 
 def register_error_handlers(app):
