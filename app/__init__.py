@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_restful import Api
 from marshmallow import ValidationError
+import os
 
 from app.common.error_handling import ObjectNotFound, AppErrorBaseClass
 from app.database import db
@@ -28,6 +29,7 @@ def create_app(settings_module):
     # Registra manejadores de errores personalizados
     register_error_handlers(app)
 
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
     return app
 
 def register_error_handlers(app):
