@@ -1,5 +1,8 @@
+from werkzeug.middleware.profiler import ProfilerMiddleware
+
 from flask import Flask, jsonify
 from flask_restful import Api
+from flask_compress import Compress
 from marshmallow import ValidationError
 import os
 
@@ -11,7 +14,7 @@ from .ext import ma, migrate
 def create_app(settings_module):
     app = Flask(__name__)
     app.config.from_object(settings_module)
-
+    Compress(app)
     # Inicializa las extensiones
     db.init_app(app)
     ma.init_app(app)
